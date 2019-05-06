@@ -1,5 +1,7 @@
 package com.hon.eventbus;
 
+import java.util.List;
+
 /**
  * Created by Frank_Hon on 5/5/2019.
  * E-mail: v-shhong@microsoft.com
@@ -26,17 +28,22 @@ public class EventBus {
         return instance;
     }
 
-    public void register(Object subscriber){
-
+    public void register(Object subscriber) {
+        Class<?> subscriberClass=subscriber.getClass();
+//        List<SubscriberMethod> subscriberMethods
     }
 
     // unregister the given subscriber from all event classes
-    public synchronized void unregister(Object subscriber){
+    public synchronized void unregister(Object subscriber) {
 
     }
 
     // posts the given event to the event bus
-    public void post(Object event){
+    public void post(Object event) {
+
+    }
+
+    private void postToSubscription(Subscription subscription, Object event) {
 
     }
 

@@ -8,9 +8,11 @@ import java.util.Objects;
  */
 final class Subscription {
     final Object subscriber;
+    final SubscriberMethod subscriberMethod;
 
-    Subscription(Object subscriber){
+    Subscription(Object subscriber,SubscriberMethod subscriberMethod){
         this.subscriber=subscriber;
+        this.subscriberMethod=subscriberMethod;
     }
 
     @Override
@@ -18,11 +20,12 @@ final class Subscription {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Subscription that = (Subscription) o;
-        return Objects.equals(subscriber, that.subscriber);
+        return Objects.equals(subscriber, that.subscriber)&&
+                Objects.equals(subscriberMethod,that.subscriberMethod);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subscriber);
+        return Objects.hash(subscriber)+Objects.hash(subscriberMethod.methodString);
     }
 }
